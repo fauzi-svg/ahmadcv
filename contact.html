@@ -1,0 +1,176 @@
+<h2>Contact Me</h2>
+
+<form id="contactForm">
+  <div class="form-group">
+    <input type="text" id="nama" placeholder="Nama">
+    <small class="error" id="errorNama"></small>
+  </div>
+
+  <div class="form-group">
+    <input type="email" id="email" placeholder="Email">
+    <small class="error" id="errorEmail"></small>
+  </div>
+
+  <div class="form-group">
+    <textarea id="pesan" placeholder="Pesan"></textarea>
+    <small class="error" id="errorPesan"></small>
+  </div>
+
+  <button type="submit">Kirim Pesan</button>
+</form>
+
+<small id="statusSave"></small>
+<div id="successMessage"></div>
+
+<style>
+.form-group {
+  margin-bottom: 15px;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+button {
+  padding: 10px;
+  width: 100%;
+  background: #46a3a7;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #2c8c90;
+}
+
+.error {
+  color: red;
+  font-size: 12px;
+}
+
+#successMessage {
+  margin-top: 10px;
+  color: green;
+  font-weight: bold;
+}
+
+#statusSave {
+  color: #555;
+  font-size: 12px;
+}
+</style>
+
+<script>
+$(document).ready(function(){
+
+  const STORAGE_KEY = "contactFormData";
+
+  // ======================
+  // LOAD DATA
+  // ======================
+  function loadData(){
+    let data = JSON.parse(localStorage.getItem(STORAGE_KEY));
+
+    if(data){
+      $("#nama").val(data.nama || "");
+      $("#email").val(data.email || "");
+      $("#pesan").val(data.pesan || "");
+    }
+  }
+
+  loadData();
+
+  // ======================
+  // AUTO SAVE
+  // ======================
+  function saveData(){
+    let data = {
+      nama: $("#nama").val(),
+      email: $("#email").val(),
+      pesan: $("#pesan").val()
+    };
+
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+    $("#statusSave").text("💾 Tersimpan otomatis...");
+  }
+
+  $("#nama, #email, #pesan").on("input", saveData);
+
+  // ======================
+  // VALIDASI
+  // ======================
+  function validateNama(){
+    if($("#nama").val().trim() === ""){
+      $("#errorNama").text("Nama wajib diisi");
+      return false;
+    }
+    $("#errorNama").text("");
+    return true;
+  }
+
+  function validateEmail(){
+    let email = $("#email").val().trim();
+    let pattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+
+    if(email === ""){
+      $("#errorEmail").text("Email wajib diisi");
+      return false;
+    } else if(!email.match(pattern)){
+      $("#errorEmail").text("Format email tidak valid");
+      return false;
+    }
+
+    $("#errorEmail").text("");
+    return true;
+  }
+
+  function validatePesan(){
+    let pesan = $("#pesan").val().trim();
+
+    if(pesan === ""){
+      $("#errorPesan").text("Pesan wajib diisi");
+      return false;
+    } else if(pesan.length < 10){
+      $("#errorPesan").text("Minimal 10 karakter");
+      return false;
+    }
+
+    $("#errorPesan").text("");
+    return true;
+  }
+
+  // realtime validation
+  $("#nama").on("keyup", validateNama);
+  $("#email").on("keyup", validateEmail);
+  $("#pesan").on("keyup", validatePesan);
+
+  // ======================
+  // SUBMIT
+  // ======================
+  $("#contactForm").submit(function(e){
+    e.preventDefault();
+
+    let valid =
+      validateNama() &
+      validateEmail() &
+      validatePesan();
+
+    if(valid){
+      $("#successMessage").text("✅ Pesan berhasil dikirim!");
+      $("#statusSave").text("");
+
+      $("#contactForm")[0].reset();
+
+      localStorage.removeItem(STORAGE_KEY);
+
+      alert("Pesan berhasil dikirim!");
+    }
+  });
+
+});
+</script>

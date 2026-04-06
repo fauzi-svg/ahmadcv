@@ -1,0 +1,53 @@
+<h2>GitHub Info</h2>
+
+<div id="loading">Loading...</div>
+<div id="error" style="color:red;"></div>
+
+<div id="profile" style="display:none;">
+  <img id="avatar" width="100">
+  <h3 id="username"></h3>
+  <p>Followers: <span id="followers"></span></p>
+  <p>Repo: <span id="repos"></span></p>
+
+  <h4>Repository:</h4>
+  <ul id="repoList"></ul>
+</div>
+
+<script>
+$(document).ready(function(){
+
+  let user = "fauzi-svg"; // GANTI USERNAME KAMU
+
+  $.ajax({
+    url: "https://api.github.com/users/"+user,
+    success: function(data){
+
+      $("#avatar").attr("src", data.avatar_url);
+      $("#username").text(data.login);
+      $("#followers").text(data.followers);
+      $("#repos").text(data.public_repos);
+
+      $.ajax({
+        url: data.repos_url,
+        success: function(repos){
+
+          repos.slice(0,5).forEach(function(r){
+            $("#repoList").append(
+              `<li><a href="${r.html_url}" target="_blank">${r.name}</a></li>`
+            );
+          });
+
+          $("#loading").hide();
+          $("#profile").show();
+        }
+      });
+
+    },
+    error:function(){
+      $("#loading").hide();
+      $("#error").text("Gagal ambil data GitHub");
+    }
+  });
+
+});
+</script>

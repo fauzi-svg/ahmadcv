@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CV Portfolio</title>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Segoe UI',sans-serif;
+}
+
+body{
+  background: linear-gradient(135deg,#1d2b64,#f8cdda);
+  min-height:100vh;
+}
+
+/* NAVBAR */
+.navbar{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:15px 20px;
+  backdrop-filter: blur(15px);
+  position:sticky;
+  top:0;
+  z-index:1000;
+}
+
+.logo{
+  color:white;
+  font-weight:bold;
+  font-size:18px;
+}
+
+.menu{
+  display:flex;
+  gap:10px;
+}
+
+.menu button{
+  padding:8px 14px;
+  border:none;
+  border-radius:20px;
+  background:rgba(255,255,255,0.2);
+  color:white;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.menu button:hover{
+  background:white;
+  color:#333;
+}
+
+.menu button.active{
+  background:white;
+  color:#333;
+}
+
+/* HAMBURGER */
+.hamburger{
+  display:none;
+  flex-direction:column;
+  cursor:pointer;
+}
+
+.hamburger div{
+  width:25px;
+  height:3px;
+  background:white;
+  margin:4px;
+}
+
+/* CONTENT */
+#content{
+  max-width:900px;
+  margin:20px auto;
+  background:rgba(255,255,255,0.9);
+  padding:25px;
+  border-radius:20px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.2);
+  min-height:300px;
+  animation:fade 0.4s;
+}
+
+@keyframes fade{
+  from{opacity:0; transform:translateY(10px);}
+  to{opacity:1;}
+}
+
+/* MOBILE */
+@media(max-width:768px){
+
+  .menu{
+    position:absolute;
+    top:60px;
+    left:0;
+    width:100%;
+    background:rgba(0,0,0,0.8);
+    flex-direction:column;
+    display:none;
+    padding:10px;
+  }
+
+  .menu.show{
+    display:flex;
+  }
+
+  .menu button{
+    width:100%;
+  }
+
+  .hamburger{
+    display:flex;
+  }
+}
+
+button:active{
+  transform:scale(0.95);
+}
+</style>
+</head>
+
+<body>
+
+<div class="navbar">
+  <div class="logo">My CV</div>
+
+  <div class="hamburger" id="hamburger">
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+
+  <div class="menu" id="menu">
+    <button id="homeBtn" class="active">Home</button>
+    <button id="aboutBtn">About</button>
+    <button id="contactBtn">Contact</button>
+    <button id="githubBtn">GitHub</button>
+    <button id="skillsBtn">Skills</button>
+    <button id="eduBtn">Educations</button>
+    <button id="expBtn">Experiences</button>
+    <button id="portBtn">Portfolio</button>
+    <button id="certBtn">Certificates</button>
+  </div>
+</div>
+
+<div id="content">
+  <h2 style="text-align:center;">Welcome</h2>
+  <p style="text-align:center;">Silakan pilih menu</p>
+</div>
+
+<script src="app.js"></script>
+
+</body>
+</html>

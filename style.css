@@ -1,0 +1,20 @@
+h3 {
+  margin-top: 15px;
+  color: #667eea;
+}
+
+p {
+  line-height: 1.6;
+}
+
+.skill {
+  background: #eee;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+.skill-bar {
+  height: 10px;
+  background: #667eea;
+}

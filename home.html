@@ -1,0 +1,72 @@
+<h2>Home</h2>
+
+<div class="home-container">
+
+  <img src="jose.jpeg" alt="Foto Profil" class="profile-img">
+
+  <div class="info">
+    <h3>Nama:</h3>
+    <p>Ahmad Fauzi</p>
+
+    <h3>Deskripsi:</h3>
+    <p>
+      Saya adalah mahasiswa yang tertarik pada pengembangan web dan desain UI/UX. 
+      Saya senang belajar hal baru dan mengembangkan keterampilan di bidang teknologi.
+    </p>
+  </div>
+
+</div>
+
+<style>
+
+/* CONTAINER */
+.home-container{
+  text-align:center;
+  padding:20px;
+}
+
+/* FOTO */
+.profile-img{
+  width:130px;
+  height:130px;
+  border-radius:50%;
+  object-fit:cover;
+  margin:15px auto;
+  display:block;
+  border:4px solid #fff;
+  box-shadow:0 5px 15px rgba(0,0,0,0.2);
+  transition:0.3s;
+}
+
+/* HOVER */
+.profile-img:hover{
+  transform:scale(1.08);
+}
+
+/* TEXT */
+.info{
+  margin-top:10px;
+}
+
+.info h3{
+  margin-top:10px;
+}
+
+.info p{
+  font-size:14px;
+  line-height:1.5;
+}
+
+/* RESPONSIVE */
+@media(max-width:480px){
+  .profile-img{
+    width:90px;
+    height:90px;
+  }
+
+  .info p{
+    font-size:13px;
+  }
+}
+
+</style>
