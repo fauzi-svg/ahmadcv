@@ -1,0 +1,24 @@
+{
+  "short_name": "MyCV",
+  "name": "Curriculum Vitae Portfolio",
+  "description": "Interactive CV with PWA capabilities",
+  "icons": [
+    {
+      "src": "imgae.png",
+      "type": "image.png",
+      "sizes": "192x192",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "image.png",
+      "type": "image.png",
+      "sizes": "512x512",
+      "purpose": "any"
+    }
+  ],
+  "start_url": "/index.html",
+  "background_color": "#1d2b64",
+  "display": "standalone",
+  "scope": "/",
+  "theme_color": "#1d2b64"
+}

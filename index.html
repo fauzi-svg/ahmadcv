@@ -1,162 +1,181 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CV Portfolio</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV Portfolio PWA</title>
 
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- PWA -->
+    <link rel="manifest" href="./manifest.json">
+    <meta name="theme-color" content="#1d2b64">
+    
+    <!-- ICON -->
+    <link rel="apple-touch-icon" href="icon-192.png">
 
-<style>
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:'Segoe UI',sans-serif;
-}
+    <!-- FIX WARNING -->
+    <meta name="mobile-web-app-capable"content="yes">
+    <meta name="apple-mobile-web-app-capable"content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
-body{
-  background: linear-gradient(135deg,#1d2b64,#f8cdda);
-  min-height:100vh;
-}
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-/* NAVBAR */
-.navbar{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:15px 20px;
-  backdrop-filter: blur(15px);
-  position:sticky;
-  top:0;
-  z-index:1000;
-}
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:'Segoe UI',sans-serif;
+        }
 
-.logo{
-  color:white;
-  font-weight:bold;
-  font-size:18px;
-}
+        body{
+            background: linear-gradient(135deg,#1d2b64,#f8cdda);
+            min-height:100vh;
+        }
 
-.menu{
-  display:flex;
-  gap:10px;
-}
+        .navbar{
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            padding:15px 20px;
+            backdrop-filter: blur(15px);
+            position:sticky;
+            top:0;
+            z-index:1000;
+            background: rgba(255, 255, 255, 0.1);
+        }
 
-.menu button{
-  padding:8px 14px;
-  border:none;
-  border-radius:20px;
-  background:rgba(255,255,255,0.2);
-  color:white;
-  cursor:pointer;
-  transition:0.3s;
-}
+        .logo{
+            color:white;
+            font-weight:bold;
+            font-size:18px;
+        }
 
-.menu button:hover{
-  background:white;
-  color:#333;
-}
+        .menu{
+            display:flex;
+            gap:10px;
+        }
 
-.menu button.active{
-  background:white;
-  color:#333;
-}
+        .menu button{
+            padding:8px 14px;
+            border:none;
+            border-radius:20px;
+            background:rgba(255,255,255,0.2);
+            color:white;
+            cursor:pointer;
+            transition:0.3s;
+        }
 
-/* HAMBURGER */
-.hamburger{
-  display:none;
-  flex-direction:column;
-  cursor:pointer;
-}
+        .menu button:hover, .menu button.active{
+            background:white;
+            color:#333;
+        }
 
-.hamburger div{
-  width:25px;
-  height:3px;
-  background:white;
-  margin:4px;
-}
+        .hamburger{
+            display:none;
+            flex-direction:column;
+            cursor:pointer;
+        }
 
-/* CONTENT */
-#content{
-  max-width:900px;
-  margin:20px auto;
-  background:rgba(255,255,255,0.9);
-  padding:25px;
-  border-radius:20px;
-  box-shadow:0 10px 30px rgba(0,0,0,0.2);
-  min-height:300px;
-  animation:fade 0.4s;
-}
+        .hamburger div{
+            width:25px;
+            height:3px;
+            background:white;
+            margin:4px;
+        }
 
-@keyframes fade{
-  from{opacity:0; transform:translateY(10px);}
-  to{opacity:1;}
-}
+        #content{
+            max-width:900px;
+            margin:20px auto;
+            background:rgba(255,255,255,0.9);
+            padding:25px;
+            border-radius:20px;
+            box-shadow:0 10px 30px rgba(0,0,0,0.2);
+            min-height:300px;
+            animation:fade 0.4s;
+        }
 
-/* MOBILE */
-@media(max-width:768px){
+        @keyframes fade{
+            from{opacity:0; transform:translateY(10px);}
+            to{opacity:1;}
+        }
 
-  .menu{
-    position:absolute;
-    top:60px;
-    left:0;
-    width:100%;
-    background:rgba(0,0,0,0.8);
-    flex-direction:column;
-    display:none;
-    padding:10px;
-  }
-
-  .menu.show{
-    display:flex;
-  }
-
-  .menu button{
-    width:100%;
-  }
-
-  .hamburger{
-    display:flex;
-  }
-}
-
-button:active{
-  transform:scale(0.95);
-}
-</style>
+        @media(max-width:768px){
+            .menu{
+                position:absolute;
+                top:60px;
+                left:0;
+                width:100%;
+                background:rgba(0,0,0,0.9);
+                flex-direction:column;
+                display:none;
+                padding:10px;
+            }
+            .menu.show{
+                display:flex;
+            }
+            .menu button{
+                width:100%;
+            }
+            .hamburger{
+                display:flex;
+            }
+        }
+    </style>
 </head>
-
 <body>
 
 <div class="navbar">
-  <div class="logo">My CV</div>
+    <div class="logo">My CV PWA</div>
 
-  <div class="hamburger" id="hamburger">
-    <div></div>
-    <div></div>
-    <div></div>
-  </div>
+    <div class="hamburger" id="hamburger">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
 
-  <div class="menu" id="menu">
-    <button id="homeBtn" class="active">Home</button>
-    <button id="aboutBtn">About</button>
-    <button id="contactBtn">Contact</button>
-    <button id="githubBtn">GitHub</button>
-    <button id="skillsBtn">Skills</button>
-    <button id="eduBtn">Educations</button>
-    <button id="expBtn">Experiences</button>
-    <button id="portBtn">Portfolio</button>
-    <button id="certBtn">Certificates</button>
-  </div>
+    <div class="menu" id="menu">
+        <button class="active" onclick="loadPage('home')">Home</button>
+        <button onclick="loadPage('about')">About</button>
+        <button onclick="loadPage('contact')">Contact</button>
+        <button onclick="loadPage('skills')">Skills</button>
+    </div>
 </div>
 
 <div id="content">
-  <h2 style="text-align:center;">Welcome</h2>
-  <p style="text-align:center;">Silakan pilih menu</p>
+    <h2 style="text-align:center;">Welcome</h2>
+    <p style="text-align:center;">Silakan pilih menu. CV ini sudah mendukung PWA.</p>
 </div>
 
-<script src="app.js"></script>
+<script>
+    // SERVICE WORKER
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+            navigator.serviceWorker.register('./sw.js')
+                .then(() => console.log('Service Worker terdaftar'))
+                .catch(err => console.error('Registrasi gagal', err));
+        });
+    }
+
+    // MENU MOBILE
+    document.getElementById('hamburger').addEventListener('click', function() {
+        document.getElementById('menu').classList.toggle('show');
+    });
+
+    // NAVIGATION CONTENT
+    function loadPage(page){
+        let content = document.getElementById('content');
+
+        if(page === 'home'){
+            content.innerHTML = "<h2>Home</h2><p>Ini halaman utama CV.</p>";
+        } else if(page === 'about'){
+            content.innerHTML = "<h2>About</h2><p>Informasi tentang saya.</p>";
+        } else if(page === 'contact'){
+            content.innerHTML = "<h2>Contact</h2><p>Email:ahmadfauzinurjaman31@gmail.com</p>";
+        } else if(page === 'skills'){
+            content.innerHTML = "<h2>Skills</h2><p>HTML, CSS, JavaScript</p>";
+        }
+    }
+</script>
 
 </body>
 </html>
