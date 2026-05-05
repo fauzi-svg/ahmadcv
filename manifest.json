@@ -4,14 +4,14 @@
   "description": "Interactive CV with PWA capabilities",
   "icons": [
     {
-      "src": "imgae.png",
-      "type": "image.png",
+      "src": "image.png",
+      "type": "image/png",
       "sizes": "192x192",
       "purpose": "any maskable"
     },
     {
       "src": "image.png",
-      "type": "image.png",
+      "type": "image/png",
       "sizes": "512x512",
       "purpose": "any"
     }
