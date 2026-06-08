@@ -3,7 +3,7 @@
   <!-- JUDUL UTAMA -->
   <div class="showcase-header">
     <h1 class="main-title">Project Showcase</h1>
-    <p class="main-subtitle">Integrasi Aplikasi Web Mobile Akademik Mahasiswa</p>
+    <p class="main-subtitle">Integrasi Aplikasi Web Mobile Academic Mahasiswa</p>
   </div>
 
   <!-- KARTU UTAMA GLASSMORPHISM -->
@@ -23,20 +23,28 @@
       Aplikasi sistem informasi akademik berskala mini yang dirancang khusus dengan pendekatan <strong>Mobile-First Design</strong>. Mengimplementasikan arsitektur <strong>SPA (Single Page Application)</strong> untuk menjamin navigasi cepat, efisien, dan mulus tanpa muat ulang halaman. Aplikasi ini membantu mahasiswa mengelola jadwal kuliah, memantau tugas harian, dan menerima notifikasi penting secara seketika.
     </p>
 
-    <!-- MOCKUP TAMPILAN HP (2 KOLOM DI TABLET/HP - LAYOUT SESUAI KETENTUAN) -->
+    <!-- LINK AKSES LANGSUNG KE TIAP FITUR (2 KOLOM DI HP/TABLET - TANPA SLIDER) -->
+    <p class="section-subtitle">AKSES LANGSUNG FITUR APLIKASI:</p>
     <div class="mockup-grid">
-      <div class="mockup-card">
-        <img src="smart4/assets/splash.png" alt="Splash Screen" onerror="this.src='https://placehold.co/300x600/0f172a/ffffff?text=Splash+Screen'">
-        <div class="mockup-caption">Splash Screen</div>
-      </div>
-      <div class="mockup-card">
-        <img src="smart4/assets/dashboard.png" alt="Dashboard" onerror="this.src='https://placehold.co/300x600/0f172a/ffffff?text=Dashboard+IPK'">
-        <div class="mockup-caption">Dashboard IPK</div>
-      </div>
-      <div class="mockup-card">
-        <img src="smart4/assets/scanner.png" alt="QR Scanner" onerror="this.src='https://placehold.co/300x600/0f172a/ffffff?text=QR+Scanner'">
-        <div class="mockup-caption">QR Scanner</div>
-      </div>
+      
+      <a href="https://smart-ruddy-delta.vercel.app/" target="_blank" class="feature-link-card">
+        <div class="feature-icon">✨</div>
+        <div class="feature-card-title">Splash Screen</div>
+        <p class="feature-card-desc">Klik untuk melihat tampilan awal & animasi loading aplikasi.</p>
+      </a>
+
+      <a href="https://smart-ruddy-delta.vercel.app/" target="_blank" class="feature-link-card">
+        <div class="feature-icon">📊</div>
+        <div class="feature-card-title">Dashboard & IPK</div>
+        <p class="feature-card-desc">Klik untuk melihat simulasi perolehan nilai & rangkuman akademik.</p>
+      </a>
+
+      <a href="https://smart-ruddy-delta.vercel.app/" target="_blank" class="feature-link-card">
+        <div class="feature-icon">🔍</div>
+        <div class="feature-card-title">QR Scanner</div>
+        <p class="feature-card-desc">Klik untuk menguji coba modul pemindaian presensi berbasis QR.</p>
+      </a>
+
     </div>
 
     <hr class="divider">
@@ -60,12 +68,14 @@
       <li><strong>Online/Offline Sync:</strong> Sinkronisasi status data otomatis mendeteksi kondisi jaringan perangkat.</li>
     </ul>
 
-    <!-- DUA TOMBOL AKSI UTAMA (Menembak ke Link Vercel Kamu) -->
+    <!-- DUA TOMBOL AKSI UTAMA -->
     <div class="button-action-group">
+      <!-- Tautan Utama Menuju Aplikasi -->
       <a href="https://smart-ruddy-delta.vercel.app/" target="_blank" class="btn-action btn-blue">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
         Live Demo
       </a>
+      <!-- Tautan Menuju Repositori GitHub -->
       <a href="https://github.com/fauzi-svg/pintar" target="_blank" class="btn-action btn-dark">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
         GitHub Repo
@@ -131,33 +141,46 @@
   color: #cbd5e1;
   margin-bottom: 25px;
 }
-/* MULTI-COLUMN MOCKUP */
+
+/* INTERACTIVE FEATURE LINK GRID */
 .mockup-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 16px;
   margin-bottom: 30px;
 }
-.mockup-card {
-  background: rgba(15, 23, 42, 0.4);
+.feature-link-card {
+  background: rgba(255, 255, 255, 0.03);
   border: 1px solid rgba(255, 255, 255, 0.06);
   border-radius: 16px;
-  padding: 12px;
+  padding: 20px 16px;
   text-align: center;
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: block;
 }
-.mockup-card img {
-  width: 100%;
-  max-height: 280px;
-  object-fit: contain;
-  border-radius: 8px;
-  background: #0f172a;
+.feature-link-card:hover {
+  background: rgba(99, 102, 241, 0.1);
+  border-color: #6366f1;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(99, 102, 241, 0.15);
 }
-.mockup-caption {
-  font-size: 11px;
+.feature-icon {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+.feature-card-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 6px;
+}
+.feature-card-desc {
+  font-size: 12px;
   color: #94a3b8;
-  margin-top: 8px;
-  font-weight: 500;
+  line-height: 1.4;
 }
+
 .divider {
   border: none;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
@@ -168,7 +191,7 @@
   font-weight: 700;
   color: #a5b4fc;
   letter-spacing: 0.5px;
-  margin: 18px 0 10px 0;
+  margin: 18px 0 12px 0;
 }
 .tech-badge-container {
   display: flex;
@@ -185,7 +208,8 @@
   font-size: 12px;
   color: #f1f5f9;
 }
-/* STATUS DOT BADGE */
+
+/* BADGE STATUS DOT */
 .status-dot {
   width: 6px;
   height: 6px;
@@ -248,7 +272,8 @@
 .btn-dark:hover {
   background: #334155;
 }
-/* TABLET & HP LAYOUT (2 KOLOM, TIDAK DI-SLIDE) */
+
+/* RESPONSIVE LAYOUT (CARD 2 KOLOM DI HP & TABLET - SESUAI GARIS PANDUAN) */
 @media (max-width: 768px) {
   .mockup-grid {
     grid-template-columns: repeat(2, 1fr);
