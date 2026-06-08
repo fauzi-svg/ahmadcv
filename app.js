@@ -35,13 +35,11 @@ $(document).ready(function(){
   $("#skillsBtn").click(function(){ loadPage("skills.html", this); });
   $("#eduBtn").click(function(){ loadPage("education.html", this); });
   $("#expBtn").click(function(){ loadPage("experience.html", this); });
-  
-  // Portfolio membuka file portfolio.html asli bawaanmu
   $("#portBtn").click(function(){ loadPage("portfolio.html", this); });
   
-  // SOLUSI ANTI-GAGAL: Langsung buka link Vercel Smart Campus kamu yang sudah aktif
+  // SEKARANG SINKRON: Mengarahkan tombol navbar untuk me-load file smartcampus.html secara dinamis
   $("#smartBtn").click(function(){ 
-    window.open("https://smart-ruddy-delta.vercel.app/", "_blank"); 
+    loadPage("smartcampus.html", this); 
   });
   
   $("#certBtn").click(function(){ loadPage("certificate.html", this); });
