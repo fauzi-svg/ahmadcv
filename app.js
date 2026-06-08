@@ -1,5 +1,8 @@
 $(document).ready(function(){
 
+  // PENAMBAHAN: Otomatis memuat halaman home.html saat pertama kali website dibuka
+  loadPage("home.html", "#homeBtn");
+
   // HAMBURGER TOGGLE
   $("#hamburger").click(function(){
     $("#menu").toggleClass("show");
@@ -32,7 +35,15 @@ $(document).ready(function(){
   $("#skillsBtn").click(function(){ loadPage("skills.html", this); });
   $("#eduBtn").click(function(){ loadPage("education.html", this); });
   $("#expBtn").click(function(){ loadPage("experience.html", this); });
+  
+  // Portfolio membuka file portfolio.html kamu lagi
   $("#portBtn").click(function(){ loadPage("portfolio.html", this); });
+  
+  // Fungsi klik untuk tombol navbar baru "Smart Campus"
+  $("#smartBtn").click(function(){ 
+    window.open("smart4/index.html", "_blank"); 
+  });
+  
   $("#certBtn").click(function(){ loadPage("certificate.html", this); });
 
 });
