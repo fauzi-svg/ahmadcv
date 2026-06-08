@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-  // PENAMBAHAN: Otomatis memuat halaman home.html saat pertama kali website dibuka
+  // Otomatis langsung memuat halaman home.html saat pertama kali website dibuka
   loadPage("home.html", "#homeBtn");
 
   // HAMBURGER TOGGLE
@@ -36,10 +36,10 @@ $(document).ready(function(){
   $("#eduBtn").click(function(){ loadPage("education.html", this); });
   $("#expBtn").click(function(){ loadPage("experience.html", this); });
   
-  // Portfolio membuka file portfolio.html kamu lagi
+  // Portfolio membuka file portfolio.html asli bawaanmu
   $("#portBtn").click(function(){ loadPage("portfolio.html", this); });
   
-  // Fungsi klik untuk tombol navbar baru "Smart Campus"
+  // Fungsi klik untuk tombol Smart Campus menuju ke folder lokal agar menyatu
   $("#smartBtn").click(function(){ 
     window.open("smart4/index.html", "_blank"); 
   });

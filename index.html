@@ -74,7 +74,6 @@ body::after { bottom: 15%; right: 10%; background: rgba(219, 39, 119, 0.2); }
   -webkit-text-fill-color: transparent;
 }
 
-/* PERBAIKAN UTAMA: Memastikan di laptop menu berjejer ke samping */
 .menu{
   display:flex;
   flex-direction: row !important;
@@ -155,7 +154,7 @@ body::after { bottom: 15%; right: 10%; background: rgba(219, 39, 119, 0.2); }
   .navbar { padding: 15px 20px; }
   
   .menu{
-    display: none !important; /* Tersembunyi sebelum hamburger diklik */
+    display: none !important;
     flex-direction: column !important;
     position: absolute !important;
     top: 100%;
@@ -171,7 +170,7 @@ body::after { bottom: 15%; right: 10%; background: rgba(219, 39, 119, 0.2); }
   }
 
   .menu.show{
-    display:flex !important; /* Muncul vertikal ke bawah hanya jika menu dibuka di HP */
+    display:flex !important;
   }
 
   .menu button{
