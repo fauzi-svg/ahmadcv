@@ -39,9 +39,9 @@ $(document).ready(function(){
   // Portfolio membuka file portfolio.html asli bawaanmu
   $("#portBtn").click(function(){ loadPage("portfolio.html", this); });
   
-  // PERBAIKAN: Menambahkan tanda / agar Vercel selalu mencari dari root folder utama secara mutlak
+  // SOLUSI ANTI-GAGAL: Langsung buka link Vercel Smart Campus kamu yang sudah aktif
   $("#smartBtn").click(function(){ 
-    window.open("/smart4/index.html", "_blank"); 
+    window.open("https://smart-ruddy-delta.vercel.app/", "_blank"); 
   });
   
   $("#certBtn").click(function(){ loadPage("certificate.html", this); });
