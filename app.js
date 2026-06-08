@@ -39,9 +39,9 @@ $(document).ready(function(){
   // Portfolio membuka file portfolio.html asli bawaanmu
   $("#portBtn").click(function(){ loadPage("portfolio.html", this); });
   
-  // Fungsi klik untuk tombol Smart Campus menuju ke folder lokal agar menyatu
+  // PERBAIKAN: Menambahkan tanda / agar Vercel selalu mencari dari root folder utama secara mutlak
   $("#smartBtn").click(function(){ 
-    window.open("smart4/index.html", "_blank"); 
+    window.open("/smart4/index.html", "_blank"); 
   });
   
   $("#certBtn").click(function(){ loadPage("certificate.html", this); });
