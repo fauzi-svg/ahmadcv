@@ -34,7 +34,7 @@ body{
   overflow-x: hidden;
 }
 
-/* BACKGROUND GLOW DECORATIONS */
+/* BACKGROUND LAYOUT GLOW AMBIENT */
 body::before, body::after {
   content: "";
   position: absolute;
@@ -49,7 +49,7 @@ body::before, body::after {
 body::before { top: 15%; left: 10%; }
 body::after { bottom: 15%; right: 10%; background: rgba(219, 39, 119, 0.2); }
 
-/* NAVBAR */
+/* BAR NAVIGASI GLASSMORPHISM UTAMA */
 .navbar{
   display:flex;
   justify-content:space-between;
@@ -112,7 +112,7 @@ body::after { bottom: 15%; right: 10%; background: rgba(219, 39, 119, 0.2); }
   font-weight: 600;
 }
 
-/* HAMBURGER */
+/* TOMBOL HAMBURGER MOBILE */
 .hamburger{
   display:none;
   flex-direction:column;
@@ -129,7 +129,7 @@ body::after { bottom: 15%; right: 10%; background: rgba(219, 39, 119, 0.2); }
   border-radius: 2px;
 }
 
-/* CONTENT CONTAINER */
+/* CONTAINER KONTEN UTAMA DOCKING AJAX */
 #content{
   max-width:960px;
   margin: 40px auto;
@@ -149,7 +149,12 @@ body::after { bottom: 15%; right: 10%; background: rgba(219, 39, 119, 0.2); }
   to{opacity:1; transform:translateY(0);}
 }
 
-/* RESPONSIVE: KHUSUS TAMPILAN HP DAN TABLET */
+@keyframes pulse {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
+
+/* CONFIG RESPONSIVE: KHUSUS TAMPILAN SMARTPHONE & TABLET LAYOUT CARD 2 COLUMN */
 @media(max-width:992px){
   .navbar { padding: 15px 20px; }
   
