@@ -3,7 +3,7 @@ let kameraStream = null;
 let pengenalSuara = null;
 
 $(document).ready(function() {
-    // Splash screen menghilang setelah 2 detik, lalu memunculkan halaman login
+    // Splash screen menghilang setelah 2 detik, lalu memunculkan halaman login secara mulus
     setTimeout(() => {
         $('#splash-screen').fadeOut(function() {
             $('#login-page').fadeIn();
@@ -11,7 +11,7 @@ $(document).ready(function() {
     }, 2000);
     
     loadTasks();
-    fetchQuote(); // Menggunakan fungsi quote baru yang aman
+    fetchQuote(); // Menggunakan fungsi quote lokal yang aman anti-stuck
     loadSchedule();
 });
 
@@ -41,13 +41,16 @@ function showPage(pageId, title) {
 
 function showToast(message) {
     $('#toast-message').text(message);
-    const toastElement = new bootstrap.Toast(document.getElementById('app-toast'));
-    toastElement.show();
+    const toastNode = document.getElementById('app-toast');
+    if (toastNode && window.bootstrap) {
+        const toastElement = new bootstrap.Toast(toastNode);
+        toastElement.show();
+    }
 }
 
 // MANAGEMENT JADWAL KULIAH LANGSUNG (SENIN - JUMAT)
 function loadSchedule() {
-    // Data jadwal kuliah lengkap dari Senin sampai Jumat (Bisa kamu edit isinya di sini)
+    // Data jadwal kuliah lengkap dari Senin sampai Jumat
     const data = [
       { 
         "hari": "Senin",
@@ -103,7 +106,7 @@ function loadSchedule() {
             `;
             daftarMatkul.forEach(item => {
                 listHtml += `
-                    <div class="smart-card p-2.5 mb-2" style="border-left: 3px solid var(--primary-indigo) !important;">
+                    <div class="smart-card p-2 mb-2" style="border-left: 3px solid var(--primary-indigo) !important;">
                         <div class="d-flex justify-content-between align-items-start">
                             <strong style="font-size: 0.8rem; color: var(--text-main);">${item.matkul}</strong>
                             <span class="badge bg-light text-primary border" style="font-size: 0.65rem;">📍 ${item.ruang}</span>
@@ -139,7 +142,7 @@ function loadSchedule() {
     $('#schedule-highlight').html(highlightHtml);
 }
 
-// STORAGE TUGAS / MISI
+// STORAGE TUGAS / MISI Mahasiswa
 function addTask() {
     const task = $('#task-input').val().trim();
     if (task) {
@@ -160,7 +163,7 @@ function loadTasks() {
     } else {
         tasks.forEach(t => {
             html += `
-                <div class="smart-card p-2.5 d-flex justify-content-between align-items-center">
+                <div class="smart-card p-2 d-flex justify-content-between align-items-center mb-2">
                     <span style="font-size: 0.78rem; color: var(--text-main);">📝 ${t.title}</span>
                     <span class="badge bg-secondary-subtle text-secondary" style="font-size: 0.6rem;">Pending</span>
                 </div>
@@ -179,7 +182,6 @@ function fetchQuote() {
         "Jangan serahkan masa depanmu pada kemalasan. Mari kuliah dengan giat di Universitas Ma'soem!",
         "Fokus pada proses, hasil tidak akan pernah mengkhianati usaha."
     ];
-    // Ambil acak satu kalimat dari array di atas
     const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
     $('#quote-area').text(randomQuote);
 }
@@ -209,8 +211,10 @@ function jalankanFitur(nomor) {
             .then(function(stream) {
                 kameraStream = stream;
                 const video = document.getElementById('webcam-preview');
-                video.srcObject = stream;
-                $('#webcam-preview').removeClass('d-none');
+                if (video) {
+                    video.srcObject = stream;
+                    $('#webcam-preview').removeClass('d-none');
+                }
                 $('#konten-hasil').html("<span class='text-success fw-bold'>Kamera Aktif!</span> Perangkat keras berfungsi penuh.");
                 $('#btn-action-fitur').text("Matikan Kamera").removeClass('d-none').attr('onclick', 'matikanKameraDanTutup()');
                 showToast("Akses Kamera Berhasil!");
@@ -224,7 +228,7 @@ function jalankanFitur(nomor) {
         }
     } 
     
-    // FITUR 2: GEOLOCATION API
+    // FITUR 2: GEOLOCATION API (FIXED LINK GOOGLE MAPS)
     else if (nomor === 2) {
         $('#judul-hasil').text("📍 Fitur 2: Geolocation API");
         $('#konten-hasil').html("Mencari sinyal satelit lokasi Anda...");
@@ -238,7 +242,7 @@ function jalankanFitur(nomor) {
                         <strong>Lokasi Anda Berhasil Dikunci:</strong><br>
                         Latitude: <span class='text-indigo'>${lat}</span><br>
                         Longitude: <span class='text-indigo'>${lon}</span><br>
-                        <a href='https://www.google.com/maps?q=${lat},${lon}' target='_blank' class='btn btn-xs btn-outline-indigo mt-2 py-0.5 px-2' style='font-size:0.7rem; text-decoration:none;'>Buka Peta Google</a>
+                        <a href='https://www.google.com/maps?q=${lat},${lon}' target='_blank' class='btn btn-xs btn-outline-indigo mt-2 py-1 px-2' style='font-size:0.7rem; text-decoration:none; display:inline-block;'>Buka Peta Google</a>
                     `);
                     showToast("Lokasi Berhasil Didapatkan!");
                 },
