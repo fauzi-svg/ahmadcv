@@ -1,20 +1,170 @@
-<h2>Portfolio</h2>
+<div class="project-card">
+  <h3 class="project-title">MY SMART CAMPUS</h3>
+  <hr class="divider">
 
-<div class="grid">
-  <div class="card">Project CV Website</div>
-  <div class="card">Project Login System</div>
+  <p class="section-subtitle">TECH STACK UTAMA:</p>
+  <div class="tech-badge-container">
+    <span class="tech-badge"><span class="status-dot"></span>HTML & CSS3</span>
+    <span class="tech-badge"><span class="status-dot"></span>jQuery (JavaScript SPA)</span>
+    <span class="tech-badge"><span class="status-dot"></span>Progressive Web App (PWA)</span>
+    <span class="tech-badge"><span class="status-dot"></span>GitHub REST API</span>
+  </div>
+
+  <p class="section-subtitle">FITUR APLIKASI YANG DIKEMBANGKAN:</p>
+  <ul class="feature-list">
+    <li><strong>Mobile UI Foundation:</strong> Dilengkapi splash screen interaktif dan bottom navigation bar ala aplikasi native.</li>
+    <li><strong>SPA Navigation:</strong> Alur perpindahan menu dinamis tanpa reload penuh memanfaatkan AJAX.</li>
+    <li><strong>Smart Schedule & Tugas:</strong> Pengingat otomatis mata kuliah harian dan deadline tugas.</li>
+    <li><strong>PWA Integration:</strong> Dapat diinstal langsung di layar utama smartphone serta mendukung mode offline.</li>
+    <li><strong>Online/Offline Sync:</strong> Sinkronisasi status data otomatis mendeteksi kondisi jaringan perangkat.</li>
+  </ul>
+
+  <div class="button-action-group">
+    <a href="https://smart-ruddy-delta.vercel.app/" target="_blank" class="btn-action btn-blue">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+      Live Demo
+    </a>
+    <a href="https://github.com/fauzi-svg/pintar" target="_blank" class="btn-action btn-dark">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+      GitHub Repo
+    </a>
+  </div>
 </div>
 
 <style>
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px,1fr));
-  gap: 10px;
+.project-card {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  padding: 30px;
+  margin-top: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
-.card {
-  padding: 20px;
-  background: #2fc989;
-  border-radius: 10px;
-  text-align: center;
+
+.project-title {
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  color: #fff;
+  margin-bottom: 15px;
+}
+
+.divider {
+  border: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  margin-bottom: 20px;
+}
+
+.section-subtitle {
+  font-size: 13px;
+  font-weight: 700;
+  color: #a5b4fc;
+  letter-spacing: 0.5px;
+  margin-bottom: 12px;
+  margin-top: 15px;
+}
+
+.tech-badge-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.tech-badge {
+  display: inline-flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 6px 14px;
+  border-radius: 30px;
+  font-size: 12px;
+  font-weight: 500;
+  color: #f1f5f9;
+}
+
+/* Status Dot Indicator untuk Badges */
+.status-dot {
+  width: 6px;
+  height: 6px;
+  background-color: #34d399; /* Hijau aktif */
+  border-radius: 50%;
+  margin-right: 8px;
+  display: inline-block;
+  box-shadow: 0 0 8px #34d399;
+}
+
+.feature-list {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 30px;
+}
+
+.feature-list li {
+  position: relative;
+  padding-left: 20px;
+  margin-bottom: 12px;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #cbd5e1;
+}
+
+.feature-list li::before {
+  content: "•";
+  position: absolute;
+  left: 5px;
+  color: #6366f1;
+  font-weight: bold;
+}
+
+/* BUTTONS GROUP */
+.button-action-group {
+  display: flex;
+  gap: 12px;
+}
+
+.btn-action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  flex: 1;
+  padding: 12px 24px;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.btn-blue {
+  background: #0284c7;
+  color: #fff;
+  border: 1px solid #0369a1;
+}
+
+.btn-blue:hover {
+  background: #0369a1;
+  box-shadow: 0 0 15px rgba(2, 132, 199, 0.4);
+  transform: translateY(-1px);
+}
+
+.btn-dark {
+  background: #1e293b;
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.btn-dark:hover {
+  background: #334155;
+  box-shadow: 0 0 15px rgba(30, 41, 59, 0.4);
+  transform: translateY(-1px);
+}
+
+@media (max-width: 576px) {
+  .button-action-group {
+    flex-direction: column;
+  }
 }
 </style>
